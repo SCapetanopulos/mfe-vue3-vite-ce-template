@@ -1,0 +1,39 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies
+node_modules
+
+# Build output
+dist
+dist-ssr
+*.local
+
+# Vite
+.vite
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# OS / Editors
+.DS_Store
+Thumbs.db
+.idea
+.vscode
+*.swp
+
+# TypeScript
+*.tsbuildinfo
+
+# Coverage / tests
+coverage
+
+# Misc
+*.tgz
