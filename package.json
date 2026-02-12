@@ -4,25 +4,28 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "dev": "vite",
     "dev:ce": "vite --config vite.config.dev.ts",
-    "build:tw": "tailwindcss -i ./src/styles/tailwind.css -o ./dist/tailwind.css --minify",
-    "build": "pnpm build:tw && vite build",
-    "preview": "vite preview --port __PREVIEW_PORT__",
-    "lint": "eslint .",
-    "typecheck": "vue-tsc --noEmit"
+    "dev:tw": "npm run build:tw -- -w",
+    "build": "vue-tsc -b && vite build",
+    "build:tw": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css -m",
+    "build:ce": "npm run build:tw && vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "preview:ce": "vite preview --port 4176",
+    "demo": "npx live-server --port=3000 --open=index_ce.html"
   },
   "dependencies": {
-    "vue": "^3.5.0"
+    "@iconify/vue": "^5.0.0",
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18",
+    "vue": "^3.5.25"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.1.0",
-    "typescript": "^5.5.4",
-    "vite": "^5.4.0",
-    "vue-tsc": "^2.0.29",
-    "eslint": "^9.9.0",
-    "eslint-plugin-vue": "^9.27.0",
-    "tailwindcss": "^3.4.10",
-    "postcss": "^8.4.41",
-    "autoprefixer": "^10.4.20"
+    "@types/node": "^24.10.1",
+    "@vitejs/plugin-vue": "^6.0.2",
+    "@vue/tsconfig": "^0.8.1",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.1",
+    "vue-tsc": "^3.1.5"
   }
 }

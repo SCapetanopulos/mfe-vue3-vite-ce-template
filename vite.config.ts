@@ -18,11 +18,19 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, "src/main-ce.ts"),
       name: "__LIB_NAME__",
-      formats: ["es"],
+      formats: ["es", "umd"],
       fileName: () => "__FILE_NAME__.es.js",
     },
+    sourcemap: true,
     rollupOptions: {
-      // Vue va inlineado por defecto en lib mode ES; si prefieres externalizarlo, lo ajustamos.
-    },
+      external: [],
+      output: {
+        globals: {},
+      },
+    }
+  },
+  define: {
+    "process.env.NODE_ENV": '"production"',
+    __VUE_PROD_DEVTOOLS__: true,
   },
 });
